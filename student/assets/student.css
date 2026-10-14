@@ -1,0 +1,771 @@
+:root {
+    --st-accent: #0071e3;
+    --st-accent-2: #5e5ce6;
+    --st-green: #30d158;
+    --st-orange: #ff9f0a;
+    --st-red: #ff453a;
+    --st-purple: #bf5af2;
+}
+
+/* ============================================================
+   АВАТАР / ДРОПДАУН / ТЕМА
+   ============================================================ */
+.avatar-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff 0%, #e7f1ff 100%);
+    color: var(--st-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    user-select: none;
+}
+.user-card-head {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f2;
+    min-width: 240px;
+}
+.user-card-head .uname {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #1d1d1f;
+    line-height: 1.25;
+}
+.user-card-head .udept {
+    font-size: 0.76rem;
+    color: #86868b;
+    margin-top: 4px;
+}
+.theme-toggle-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+.theme-toggle-btn:hover {
+    background: rgba(255,255,255,0.28);
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   КАРТОЧКИ
+   ============================================================ */
+.st-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    padding: 22px;
+    margin-bottom: 18px;
+    transition: all 0.3s;
+}
+.st-card:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+.st-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.st-card-title i { color: var(--st-accent); }
+
+/* ============================================================
+   СТАТИСТИКА
+   ============================================================ */
+.st-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+.st-stat {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+}
+.st-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--stat-color, var(--st-accent));
+}
+.st-stat-icon {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: var(--stat-bg, rgba(0,113,227,0.1));
+    color: var(--stat-color, var(--st-accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+}
+.st-stat-value {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+    margin-bottom: 6px;
+    font-variant-numeric: tabular-nums;
+}
+.st-stat-label {
+    font-size: 0.8rem;
+    color: #86868b;
+    font-weight: 500;
+}
+
+/* ============================================================
+   ЗАНЯТИЕ
+   ============================================================ */
+.st-lesson {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1.5px solid #f0f0f2;
+    background: #fafafc;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.st-lesson::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--st-accent);
+}
+.st-lesson--current {
+    background: linear-gradient(135deg, #f0faf3 0%, #fff 100%);
+    border-color: var(--st-green);
+}
+.st-lesson--current::before { background: var(--st-green); width: 5px; }
+.st-lesson--next {
+    background: linear-gradient(135deg, #e7f6fb 0%, #fff 100%);
+    border-color: #0dcaf0;
+}
+.st-lesson--next::before { background: #0dcaf0; width: 4px; }
+.st-lesson-time {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: #1d1d1f;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+}
+.st-lesson-time small {
+    font-size: 0.6rem;
+    font-weight: 500;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+.st-lesson-info { flex: 1; min-width: 0; }
+.st-lesson-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+}
+.st-lesson-meta {
+    font-size: 0.78rem;
+    color: #86868b;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.st-lesson-meta i { color: var(--st-accent); }
+
+/* ============================================================
+   MAX-КАРТОЧКА
+   ============================================================ */
+.st-max-card {
+    background: linear-gradient(135deg, #0a84ff 0%, #5e5ce6 60%, #bf5af2 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    padding: 24px !important;
+}
+.st-max-glow {
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.st-max-icon {
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    flex-shrink: 0;
+}
+.st-max-btn {
+    background: #fff;
+    color: #0071e3;
+    padding: 12px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.st-max-btn:hover {
+    transform: translateY(-2px);
+    color: #0056b3;
+}
+
+/* ============================================================
+   ДОСТИЖЕНИЯ (плитки)
+   ============================================================ */
+.st-ach {
+    padding: 14px;
+    border-radius: 14px;
+    text-align: center;
+    position: relative;
+    transition: all 0.25s;
+    border: 1.5px solid transparent;
+    cursor: help;
+    -webkit-tap-highlight-color: transparent;
+}
+.st-ach--unlocked {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--ach-color) 12%, #fff) 0%, #fff 100%);
+    border-color: color-mix(in srgb, var(--ach-color) 30%, transparent);
+}
+.st-ach--unlocked:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--ach-color) 20%, transparent);
+}
+.st-ach--locked {
+    background: #fafafc;
+    border-color: #f0f0f2;
+    opacity: 0.75;
+}
+.st-ach--locked:hover {
+    opacity: 1;
+    background: #fff;
+}
+
+.st-ach-icon {
+    width: 52px; height: 52px;
+    margin: 0 auto 10px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    background: color-mix(in srgb, var(--ach-color) 15%, transparent);
+    color: var(--ach-color);
+}
+.st-ach--locked .st-ach-icon {
+    background: rgba(0,0,0,0.05);
+    color: #a1a1a6;
+    filter: grayscale(1);
+}
+.st-ach-icon svg {
+    width: 32px; height: 32px;
+}
+.st-ach-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+    line-height: 1.25;
+}
+.st-ach--locked .st-ach-title {
+    color: #6e6e73;
+}
+.st-ach-desc {
+    font-size: 0.72rem;
+    color: #86868b;
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+.st-ach-points {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ach-color);
+}
+
+.st-ach-bar {
+    height: 6px;
+    background: #f0f0f2;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+.st-ach-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s;
+}
+.st-ach-progress {
+    font-size: 0.7rem;
+    color: #86868b;
+    font-weight: 700;
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* ============================================================
+   ТУЛТИП ДОСТИЖЕНИЙ
+   ============================================================ */
+.st-ach-tooltip {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+    transition: opacity 0.2s cubic-bezier(0.16,1,0.3,1),
+                transform 0.25s cubic-bezier(0.16,1,0.3,1);
+    max-width: 320px;
+    min-width: 240px;
+}
+.st-ach-tooltip.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.st-ach-tooltip-inner {
+    background: rgba(29,29,31,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #f5f5f7;
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.06) inset;
+    position: relative;
+}
+.st-ach-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: rgba(29,29,31,0.96);
+    border-radius: 2px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+    pointer-events: none;
+}
+.st-ach-tooltip--above::after {
+    bottom: -6px;
+    top: auto;
+}
+.st-ach-tooltip--below::after {
+    top: -6px;
+    bottom: auto;
+}
+.st-ach-tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.st-ach-tooltip-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background: var(--tt-color, rgba(0,113,227,0.2));
+    color: var(--tt-color-solid, #6ea8ff);
+    flex-shrink: 0;
+}
+.st-ach-tooltip-icon svg {
+    width: 26px; height: 26px;
+}
+.st-ach-tooltip-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 2px;
+}
+.st-ach-tooltip-points {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ffd60a;
+    letter-spacing: 0.02em;
+}
+.st-ach-tooltip-body {
+    font-size: 0.83rem;
+    line-height: 1.5;
+}
+.st-ach-tooltip-desc {
+    color: #a1a1a6;
+    margin-bottom: 10px;
+}
+.st-ach-tooltip-desc:empty { display: none; }
+
+.st-ach-tooltip-progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+.st-ach-tooltip-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0a84ff, #bf5af2);
+    border-radius: 3px;
+    transition: width 0.4s;
+}
+.st-ach-tooltip-progress-text {
+    font-size: 0.75rem;
+    color: #a1a1a6;
+    display: flex;
+    justify-content: space-between;
+    font-variant-numeric: tabular-nums;
+}
+.st-ach-tooltip-progress-text strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.st-ach-tooltip-unlocked {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #30d158;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.st-ach-tooltip-unlocked i {
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   СЕТКА ДВУХ КОЛОНОК
+   ============================================================ */
+.st-two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+@media (max-width: 700px) {
+    .st-two-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   МОБИЛЬНЫЙ ТУЛТИП
+   ============================================================ */
+@media (max-width: 640px) {
+    .st-ach-tooltip {
+        left: 12px !important;
+        right: 12px;
+        max-width: none;
+        min-width: 0;
+        bottom: 12px !important;
+        top: auto !important;
+    }
+    .st-ach-tooltip::after { display: none; }
+}
+
+/* ============================================================
+   ТЁМНАЯ ТЕМА
+   ============================================================ */
+[data-theme="dark"] body {
+    background: #000 !important;
+    color: #f5f5f7;
+}
+[data-theme="dark"] .st-card,
+[data-theme="dark"] .st-stat,
+[data-theme="dark"] .st-lesson {
+    background: #1c1c1e;
+    border-color: #2c2c2e;
+}
+[data-theme="dark"] .st-card-title,
+[data-theme="dark"] .st-stat-value,
+[data-theme="dark"] .st-lesson-title {
+    color: #f5f5f7;
+}
+[data-theme="dark"] .user-card-head { border-color: #2c2c2e; }
+[data-theme="dark"] .user-card-head .uname { color: #f5f5f7; }
+[data-theme="dark"] .dropdown-menu {
+    background: #1c1c1e;
+    border-color: #2c2c2e;
+}
+[data-theme="dark"] .dropdown-item { color: #f5f5f7; }
+[data-theme="dark"] .dropdown-item:hover { background: #2c2c2e; }
+[data-theme="dark"] .st-lesson--current {
+    background: linear-gradient(135deg, rgba(48,209,88,0.15) 0%, #1c1c1e 100%);
+}
+[data-theme="dark"] .st-lesson--next {
+    background: linear-gradient(135deg, rgba(13,202,240,0.15) 0%, #1c1c1e 100%);
+}
+[data-theme="dark"] .st-ach--unlocked {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--ach-color) 20%, #1c1c1e) 0%, #1c1c1e 100%);
+}
+[data-theme="dark"] .st-ach--locked {
+    background: #2c2c2e;
+    border-color: #3c3c3e;
+}
+[data-theme="dark"] .st-ach-title { color: #f5f5f7; }
+[data-theme="dark"] .st-ach--locked .st-ach-title { color: #a1a1a6; }
+[data-theme="dark"] .st-ach-bar { background: #3c3c3e; }
+/* ============================================================
+   СЕТКА РАСПИСАНИЯ
+   ============================================================ */
+.sched-grid-wrap {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    padding: 16px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+.sched-grid {
+    display: grid;
+    grid-template-columns: 80px repeat(7, minmax(130px, 1fr));
+    gap: 8px;
+    min-width: 1000px;
+}
+
+/* Заголовок */
+.sched-corner {
+    background: transparent;
+}
+.sched-head {
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 10px 8px;
+    text-align: center;
+    transition: all 0.2s;
+}
+.sched-head--today {
+    background: linear-gradient(135deg, #0071e3, #5e5ce6);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(0,113,227,0.3);
+}
+.sched-head--weekend {
+    background: #fafafc;
+    opacity: 0.7;
+}
+.sched-head-day {
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+.sched-head-date {
+    font-size: 0.72rem;
+    opacity: 0.75;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Слева — время */
+.sched-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fafafc;
+    border-radius: 12px;
+    padding: 8px;
+    min-height: 80px;
+}
+.sched-time-num {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0071e3;
+    line-height: 1;
+}
+.sched-time-range {
+    font-size: 0.65rem;
+    color: #86868b;
+    text-align: center;
+    line-height: 1.35;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Ячейка */
+.sched-cell {
+    border-radius: 12px;
+    background: #fafafc;
+    padding: 6px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.2s;
+}
+.sched-cell--today {
+    background: rgba(0,113,227,0.04);
+    border: 1px dashed rgba(0,113,227,0.2);
+}
+.sched-cell--weekend {
+    background: #f5f5f7;
+    opacity: 0.6;
+}
+.sched-cell--empty {
+    align-items: center;
+    justify-content: center;
+}
+.sched-empty-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e5e5ea;
+}
+
+/* Карточка занятия внутри ячейки */
+.sched-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 10px;
+    border-left: 3px solid #0071e3;
+    font-size: 0.75rem;
+    position: relative;
+    transition: all 0.2s;
+    cursor: help;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.sched-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+.sched-card--lecture  { border-left-color: #0071e3; background: linear-gradient(90deg, rgba(0,113,227,0.08), #fff 60%); }
+.sched-card--practice { border-left-color: #30d158; background: linear-gradient(90deg, rgba(48,209,88,0.08), #fff 60%); }
+.sched-card--lab      { border-left-color: #5ac8fa; background: linear-gradient(90deg, rgba(90,200,250,0.08), #fff 60%); }
+.sched-card--seminar  { border-left-color: #ff9f0a; background: linear-gradient(90deg, rgba(255,159,10,0.08), #fff 60%); }
+.sched-card--other    { border-left-color: #86868b; }
+
+.sched-card--current {
+    border-left-width: 4px;
+    border-left-color: #30d158 !important;
+    animation: schedCardPulse 2s ease-in-out infinite;
+}
+@keyframes schedCardPulse {
+    0%,100% { box-shadow: 0 2px 6px rgba(48,209,88,0.2), 0 0 0 0 rgba(48,209,88,0.4); }
+    50%     { box-shadow: 0 6px 14px rgba(48,209,88,0.35), 0 0 0 6px rgba(48,209,88,0); }
+}
+
+.sched-card-title {
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1.25;
+    font-size: 0.78rem;
+    margin-bottom: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.sched-card-meta {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-size: 0.68rem;
+    color: #86868b;
+    flex-wrap: wrap;
+}
+.sched-card-meta i { color: #0071e3; }
+.sched-card-sg {
+    background: rgba(0,113,227,0.12);
+    color: #0071e3;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.62rem;
+}
+.sched-card-type {
+    position: absolute;
+    top: 6px; right: 8px;
+    font-size: 0.75rem;
+    color: #c7c7cc;
+    opacity: 0.7;
+}
+
+/* Легенда */
+.sched-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 12px 4px;
+    font-size: 0.78rem;
+    color: #86868b;
+}
+.sched-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.sched-legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Мобильная версия: сетка не помещается — но она скроллится по X */
+@media (max-width: 767px) {
+    .sched-grid-wrap { padding: 10px; }
+    .sched-grid { grid-template-columns: 60px repeat(7, 120px); }
+    .sched-time-num { font-size: 1rem; }
+    .sched-time-range { font-size: 0.6rem; }
+    .sched-card-title { font-size: 0.72rem; -webkit-line-clamp: 2; }
+}
+
+/* Тёмная тема */
+[data-theme="dark"] .sched-grid-wrap { background: #1c1c1e; border-color: #2c2c2e; }
+[data-theme="dark"] .sched-head { background: #2c2c2e; color: #f5f5f7; }
+[data-theme="dark"] .sched-head--weekend { background: #1c1c1e; }
+[data-theme="dark"] .sched-time { background: #2c2c2e; }
+[data-theme="dark"] .sched-time-range { color: #a1a1a6; }
+[data-theme="dark"] .sched-cell { background: #2c2c2e; }
+[data-theme="dark"] .sched-cell--today { background: rgba(10,132,255,0.1); border-color: rgba(10,132,255,0.3); }
+[data-theme="dark"] .sched-cell--weekend { background: #1c1c1e; }
+[data-theme="dark"] .sched-card { background: #1c1c1e; color: #f5f5f7; }
+[data-theme="dark"] .sched-card-title { color: #f5f5f7; }
+[data-theme="dark"] .sched-empty-dot { background: #3c3c3e; }

@@ -1,0 +1,13 @@
+{
+    "3E6029AE5C1B0EF4F74678996C67DDAA91D5C7F9EB13BDD143876B28200C56B0": {
+        "alice_state": "choose_method",
+        "role_pending": null,
+        "alice_teachers": null,
+        "role": null,
+        "teacher_id": null,
+        "teacher_name": null,
+        "registered": false,
+        "group_id": null,
+        "group_name": null
+    }
+}
